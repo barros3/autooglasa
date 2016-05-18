@@ -1,0 +1,98 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+    <div class="col-md-8">
+        <h1>Preparando Anúncio</h1>
+        <br />
+        <h:form class="form-horizontal" role="form">
+            <div class="form-group">
+                <h:outputLabel for="inputModelo" value="Modelo"
+                    styleClass="col-sm-3 control-label" />
+                <div class="col-sm-5">
+                    <h:inputText value="#{oglasaBean.oglasa.modelo}" required="true"
+                        class="form-control" id="inputModelo"
+                        pt:placeholder="Modelo do automóvel"
+                        requiredMessage="Por favor, informe o modelo do aumóvel.">
+                        <f:ajax event="blur" render="inputModelo" />
+                    </h:inputText>
+                    <h:message id="m_inputmodelo" for="inputModelo"
+                        style="color:#D74937;" />
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="inputAno" value="Ano"
+                    styleClass="col-sm-3 control-label" />
+                <div class="col-sm-6">
+                    <h:inputText value="#{oglasaBean.oglasa.ano}" class="form-control"
+                        id="inputAno" required="true"
+                        pt:placeholder="Digite aqui o Ano do autóvel.">
+                    </h:inputText>
+                    <h:message id="m_inputano" for="inputAno" style="color:#D74937;" />
+                </div>
+            </div>
+             
+             
+             <div class="form-group">
+                <h:outputLabel for="preco" value="Preço"
+                    styleClass="col-sm-3 control-label" />
+                <div class="col-sm-6">
+                    <h:inputText value="#{oglasaBean.oglasa.preco}" 
+                    	id="preco"
+                        styleClass="form-control"
+                        pt:placeholder="Digite aqui o Preço do automóvel."
+                        required="true"
+                        requiredMessage="é necessário que você informe o preço.">
+                        <f:ajax event="blur" render="m_preco" />
+                    </h:inputText>
+                    <h:message id="m_preco" for="preco" style="color:#D74937;" />
+                </div>
+            </div>
+			<div class="form-group">
+                <h:outputLabel for="potencia" value="Potência"
+                    styleClass="col-sm-3 control-label" />
+                <div class="col-sm-6">
+                    <h:inputText value="#{oglasaBean.oglasa.potencia}" 
+                    	id="potencia"
+                        styleClass="form-control"
+                        pt:placeholder="Digite aqui o Potência do automóvel."
+                        required="true"
+                        requiredMessage="é necessário que você informe a potência.">
+                        <f:ajax event="blur" render="m_potencia" />
+                    </h:inputText>
+                    <h:message id="m_potencia" for="potencia" style="color:#D74937;" />
+                </div>
+            </div>
+            <div class="form-group">
+                <h:outputLabel for="fabricante" value="Fabricante"
+                    styleClass="col-sm-3 control-label" />
+                <div class="col-sm-6">
+                    <h:inputText value="#{oglasaBean.oglasa.fabricante}" 
+                    	id="fabricante"
+                        styleClass="form-control"
+                        pt:placeholder="Digite aqui o Fabricante do automóvel."
+                        required="true"
+                        requiredMessage="Informe o Fabricante..">
+                        <f:ajax event="blur" render="m_fabricante" />
+                    </h:inputText>
+                    <h:message id="m_fabricante" for="fabricante" style="color:#D74937;" />
+                </div>
+            </div>
+      
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <h:commandButton action="#{oglasaBean.save}" value="Próxima etapa"
+                        styleClass="btn btn-default" />
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-sm-offset-3 col-sm-10">
+                    <span> <h:outputLink href="#">Saiba mais</h:outputLink>
+                        sobre o motivo de pedirmos essas informações.
+                    </span>
+                </div>
+            </div>
+        </h:form>
+    </div>
+</ui:composition>

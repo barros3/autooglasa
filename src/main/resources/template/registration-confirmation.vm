@@ -1,0 +1,8 @@
+<html>
+<body>
+   <h3>Parabéns ${profile.firstName},você registrou no Autooglasa.com</h3>
+   <p>O site de cadastro de anuncio de automóveis onde a partir desta confirmação você poderá
+   cadastrar o seu veículo para venda ,ou no caso de ainda não possuir um, simplesmente achar o seu!!!</p>
+   <a href="${context}public/activate.xhtml?key=${profile.user.validation}">Clique aqui para validar seu cadastro</a>.
+</body>
+</html>
