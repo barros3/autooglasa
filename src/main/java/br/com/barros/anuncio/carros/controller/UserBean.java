@@ -1,5 +1,6 @@
 package br.com.barros.anuncio.carros.controller;
 
+import java.io.Serializable;
 import java.util.Map;
 
 import javax.annotation.PostConstruct;
@@ -19,8 +20,10 @@ import br.com.barros.anuncio.carros.utils.security.GenerateMD5;
 
 @ManagedBean(name = "user")
 @RequestScoped
-public class UserBean {
+public class UserBean implements Serializable {
 
+	private static final long serialVersionUID = 1L;
+			
 	private User user = null;
 	private Profile profile = null;
 

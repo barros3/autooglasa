@@ -1,16 +1,19 @@
 package br.com.barros.anuncio.carros.model;
 
 
+import java.io.Serializable;
 import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.MapsId;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
+
 import org.hibernate.annotations.NaturalId;
 
 @Entity
-public class Profile {
+public class Profile implements Serializable {
 
 	@Id
 	private Long id;

@@ -1,5 +1,8 @@
 package br.com.barros.anuncio.carros.model;
 
+import java.io.Serializable;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -11,9 +14,11 @@ import javax.persistence.Table;
 @Entity
 @Table(name="oglasa")
 @SequenceGenerator(name = "seq", sequenceName = "seq_oglasa", allocationSize = 1, initialValue = 1)
-public class Oglasa{
+public class Oglasa implements Serializable {
      
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
     @GeneratedValue(generator="seq")
     private Long id;
    
@@ -27,8 +32,9 @@ public class Oglasa{
     
     private String potencia;
     
-    @ManyToOne
-    @JoinColumn(name="user_fk")
+//    @ManyToOne
+//    @JoinColumn(name="user_fk", nullable=true)
+    @ManyToOne(cascade=CascadeType.ALL)
     private User user;
 
 	public Long getId() {

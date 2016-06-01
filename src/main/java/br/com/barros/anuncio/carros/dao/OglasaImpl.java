@@ -22,17 +22,6 @@ public class OglasaImpl implements OglasaDao {
 	}
 
 	@Override
-	public void save(Oglasa oglasa) {
-		session.save(oglasa);
-	}
-
-	@Override
-	public void update(Oglasa oglasa) {
-		session.update(oglasa);
-	}
-
-
-	@Override
 	public void remove(Oglasa oglasa) {
 		session.delete(oglasa);
 	}
@@ -44,5 +33,17 @@ public class OglasaImpl implements OglasaDao {
 		List<Oglasa> oglasaList = (List<Oglasa>) createQuery;
 		return oglasaList;
 	}
-  
+
+	@Override
+	public void merge(Oglasa oglasa) {
+		session.merge(oglasa);
+	}
+
+	@Override
+	public Oglasa save(Oglasa oglasa) {
+		session.save(oglasa);
+		return oglasa;
+		
+	}
+	
 }

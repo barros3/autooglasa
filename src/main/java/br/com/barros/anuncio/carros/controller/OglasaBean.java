@@ -1,5 +1,6 @@
 package br.com.barros.anuncio.carros.controller;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -9,6 +10,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
 import br.com.barros.anuncio.carros.busines.OglasaBusiness;
+import br.com.barros.anuncio.carros.busines.UserBusiness;
 import br.com.barros.anuncio.carros.model.Oglasa;
 import br.com.barros.anuncio.carros.model.Profile;
 import br.com.barros.anuncio.carros.model.User;
@@ -17,42 +19,51 @@ import br.com.barros.anuncio.carros.utils.ManipulateDate;
 
 @ManagedBean(name = "oglasaBean")
 @RequestScoped
-public class OglasaBean {
+public class OglasaBean implements Serializable {
 
-	private User user = null;
+	private static final long serialVersionUID = 1L;
+	
+	private User user;
 	private Profile profile = null;
 	private Oglasa oglasa = null;
-	private List<Oglasa> oglasaList = new ArrayList<Oglasa>();
+	private List<Oglasa> oglasaList = null;
 	
 	@PostConstruct
 	public void init() {
-		user = new User();
 		profile = new Profile();
 		oglasa = new Oglasa();
+		oglasaList = new ArrayList<Oglasa>();
 	}
-
+	
 	public String save() {
 	
 		OglasaBusiness oglasaBusiness =  new OglasaBusiness();
+		UserBusiness userBusiness = new UserBusiness();
 		
+		// PEGO O USUARIO DA SESSAO
+		user = userBusiness.getUserLogado();		
+		
+		//	POPULA O OGLASA
 		oglasa.setModelo(oglasa.getModelo());
 		oglasa.setFabricante(oglasa.getFabricante());
-		oglasa.setModelo(oglasa.getModelo());
 		oglasa.setAno(oglasa.getAno());
 		oglasa.setPreco(oglasa.getPreco());
 		oglasa.setPotencia(oglasa.getPotencia());
-		
 		oglasa.setUser(user);
 		
+		//	PERSISTE O OGLASA
+		oglasaBusiness.saveBusiness(oglasa);
+		
+		//	ADICIONA O OGLASA PERSISTIDO NA LISTA DE OGLASA DO USUARIO
 		oglasaList.add(oglasa);
+		user.setOglasa(oglasaList);
 		
-		user.setOglasaList(oglasaList);
+		// PERSISTE O USUARIO
+		userBusiness.mergeBusiness(user);
 
-		oglasaBusiness.save(oglasa);
-		
-		return "/public/feedback_login";
+		return "/user_common/principal";
 	}
-
+	
 	public User getUser() {
 		return user;
 	}
@@ -96,4 +107,5 @@ public class OglasaBean {
 	public void setOglasaList(List<Oglasa> oglasaList) {
 		this.oglasaList = oglasaList;
 	}
+	
 }

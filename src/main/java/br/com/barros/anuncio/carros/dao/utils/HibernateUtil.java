@@ -12,7 +12,8 @@ public class HibernateUtil {
     private static SessionFactory buildSessionFactory() {        
  
         try {
-            Configuration configuration=new Configuration().configure(); // configures settings from hibernate.cfg.xml
+            Configuration configuration = new Configuration().configure(); 
+            // configures settings from hibernate.cfg.xml
  
             StandardServiceRegistryBuilder serviceRegistryBuilder = new StandardServiceRegistryBuilder();
             // If you miss the below line then it will complaing about a missing dialect setting

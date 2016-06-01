@@ -27,4 +27,5 @@ public class DAOFactory {
     	OglasaImpl.setSession(HibernateUtil.getSessionFactory().getCurrentSession());
         return OglasaImpl;
     }
+    
 }

@@ -5,6 +5,11 @@ import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 
+import org.springframework.beans.factory.annotation.Autowired;
+
+import br.com.barros.anuncio.carros.busines.OglasaBusiness;
+import br.com.barros.anuncio.carros.dao.OglasaDao;
+
 @RequestScoped
 @ManagedBean
 public class Index {
@@ -31,7 +36,14 @@ public class Index {
 	}
 	
 	public String oglasa() {
-		return "/public/oglasa.xhtml";
+		return "/user_common/oglasa.xhtml";
 	}
 	
+	public String logout(){
+		return "/public/index.xhtml";
+	}
+	
+	public String principal(){
+		return "/user_common/principal.xhtml";
+	}
 }
