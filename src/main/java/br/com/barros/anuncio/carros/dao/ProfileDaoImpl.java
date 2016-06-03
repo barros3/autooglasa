@@ -12,7 +12,7 @@ public class ProfileDaoImpl implements ProfileDao {
         this.session = session;
     }
      
-    @Override
+    // @Override
     public void save(Profile profile) {
         this.session.saveOrUpdate(profile);
     }

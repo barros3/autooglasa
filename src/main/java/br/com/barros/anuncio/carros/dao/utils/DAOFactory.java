@@ -7,7 +7,6 @@ import br.com.barros.anuncio.carros.dao.ProfileDaoImpl;
 import br.com.barros.anuncio.carros.dao.UserDao;
 import br.com.barros.anuncio.carros.dao.UserImpl;
 
- 
 public class DAOFactory {
  
     public static ProfileDao createProfile(){

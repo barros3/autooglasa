@@ -54,13 +54,14 @@ public class UserImpl implements UserDao {
 
 	@Override
 	public User getUserSession() {
+		User user = new User();
+		
 		Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
 		
 		String login = ((UserDetails)principal).getUsername();
 		String password = ((UserDetails)principal).getPassword();
 		
 		String hqlLoginAndSenhaUserSession = "from User u where u.login like :login and u.password like :password";
-		User user = new User();
 		user = (User) session.createQuery(hqlLoginAndSenhaUserSession).setParameter("login", login).setParameter("password", password).uniqueResult();
 		
 		return user;

@@ -28,7 +28,7 @@ public class UrlAuthenticationSuccessHandler implements AuthenticationSuccessHan
 
 	// API
 
-	@Override
+//	@Override
 	public void onAuthenticationSuccess(final HttpServletRequest request,
 			final HttpServletResponse response,
 			final Authentication authentication) throws IOException {

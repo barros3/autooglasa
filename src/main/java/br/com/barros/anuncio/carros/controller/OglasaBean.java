@@ -27,42 +27,55 @@ public class OglasaBean implements Serializable {
 	private Profile profile = null;
 	private Oglasa oglasa = null;
 	private List<Oglasa> oglasaList = null;
+	private List<Oglasa> oglasaListPublic = null;
 	
 	@PostConstruct
 	public void init() {
 		profile = new Profile();
 		oglasa = new Oglasa();
 		oglasaList = new ArrayList<Oglasa>();
+		oglasaListPublic = new ArrayList<Oglasa>();
 	}
 	
 	public String save() {
 	
-		OglasaBusiness oglasaBusiness =  new OglasaBusiness();
-		UserBusiness userBusiness = new UserBusiness();
-		
-		// PEGO O USUARIO DA SESSAO
-		user = userBusiness.getUserLogado();		
-		
-		//	POPULA O OGLASA
-		oglasa.setModelo(oglasa.getModelo());
-		oglasa.setFabricante(oglasa.getFabricante());
-		oglasa.setAno(oglasa.getAno());
-		oglasa.setPreco(oglasa.getPreco());
-		oglasa.setPotencia(oglasa.getPotencia());
-		oglasa.setUser(user);
-		
-		//	PERSISTE O OGLASA
-		oglasaBusiness.saveBusiness(oglasa);
-		
-		//	ADICIONA O OGLASA PERSISTIDO NA LISTA DE OGLASA DO USUARIO
-		oglasaList.add(oglasa);
-		user.setOglasa(oglasaList);
-		
-		// PERSISTE O USUARIO
-		userBusiness.mergeBusiness(user);
+		try {
+			OglasaBusiness oglasaBusiness =  new OglasaBusiness();
+			UserBusiness  userBusiness = new UserBusiness();
+			
+			// PEGO O USUARIO DA SESSAO
+			user = userBusiness.getUserLogado();		
+			
+			//	POPULA O OGLASA
+			oglasa.setModelo(oglasa.getModelo());
+			oglasa.setFabricante(oglasa.getFabricante());
+			oglasa.setAno(oglasa.getAno());
+			oglasa.setPreco(oglasa.getPreco());
+			oglasa.setPotencia(oglasa.getPotencia());
+			oglasa.setUser(user);
+			
+			//	PERSISTE O OGLASA
+			oglasaBusiness.saveBusiness(oglasa);
+			
+			//	ADICIONA O OGLASA PERSISTIDO NA LISTA DE OGLASA DO USUARIO
+			oglasaList.add(oglasa);
+			user.setOglasa(oglasaList);
+			
+			// PERSISTE O USUARIO
+			userBusiness.mergeBusiness(user);
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("TAG ERRO OGLASA");
+		}
 
 		return "/user_common/principal";
 	}
+	
+//	OglasaBusiness oglasaBusiness = new OglasaBusiness();
+//	public List<Oglasa> listOglasaPublic(){
+//		return oglasaListPublic = oglasaBusiness.listBusiness();
+//	}
 	
 	public User getUser() {
 		return user;
@@ -106,6 +119,14 @@ public class OglasaBean implements Serializable {
 
 	public void setOglasaList(List<Oglasa> oglasaList) {
 		this.oglasaList = oglasaList;
+	}
+
+	public List<Oglasa> getOglasaListPublic() {
+		return oglasaListPublic;
+	}
+
+	public void setOglasaListPublic(List<Oglasa> oglasaListPublic) {
+		this.oglasaListPublic = oglasaListPublic;
 	}
 	
 }

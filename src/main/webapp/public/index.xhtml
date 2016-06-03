@@ -1,140 +1,166 @@
 <ui:composition template="/public/template_initial.xhtml"
-	xmlns:ui="http://java.sun.com/jsf/facelets">
+				xmlns:ui="http://java.sun.com/jsf/facelets" 
+				xmlns:p="http://primefaces.org/ui" 
+				xmlns:h="http://java.sun.com/jsf/html"
+				xmlns:f="http://java.sun.org/jsf/core">
 	<ui:define name="nav_bar">
 			<ui:include src="/public/top_bar_initial.xhtml" />
 	</ui:define>
 	<ui:define name="container">
-		<div class="row">
+	
+<!-- 		<div class="row"> -->
 			<div class="container">
-		        <!-- Page Heading -->
+		        Page Heading
 		        <div class="row" style="padding-top: 12%">
 		            <div class="col-lg-12">
-		                <h1 class="page-header">Carros para alugar
-		                    <small>Escolha seu carro aqui</small>
+		                <h1 class="page-header">Oglasa seu Automóvel
 		                </h1>
 		            </div>
 		        </div>
-		        <!-- /.row -->
+		        <h:form>
+				    <p:dataTable var="carro" value="#{dtPaginatorView.oglasa}" rows="10" paginator="true"
+								 paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink}
+								 					{PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+			                     rowsPerPageTemplate="5,10,15">
+				        <p:column headerText="Modelo">
+					   		<h:outputText value="#{carro.modelo}" />
+				        </p:column>
+				        <p:column headerText="Ano">
+		            		<h:outputText value="#{carro.ano}" />
+				        </p:column>				 
+				        <p:column headerText="Fabricante">
+							<h:outputText value="#{carro.fabricante}" />
+				        </p:column>
+				        <p:column headerText="Potência">
+            				<h:outputText value="#{carro.potencia}" />
+				        </p:column>
+				        <p:column headerText="Valor">
+							<h:outputText value="#{carro.preco}" />
+				        </p:column>
+				    </p:dataTable>
+				</h:form>
+	        </div>
+<!-- 		        /.row -->
 		
-		        <!-- Projects Row -->
-		        <div class="row">
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		        </div>
-		        <!-- /.row -->
-				<br />
-		        <!-- Projects Row -->
-		        <div class="row">
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		        </div>
-		        <!-- /.row -->
-				<br />
-		        <!-- Projects Row -->
-		        <div class="row">
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		            <div class="col-md-3 portfolio-item">
-		                <a href="#">
-		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img>
-		                </a>
-		            </div>
-		        </div>
-		        <!-- /.row -->
+<!-- 		        Projects Row -->
+<!-- 		        <div class="row"> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		        </div> -->
+<!-- 		        /.row -->
+<!-- 				<br /> -->
+<!-- 		        Projects Row -->
+<!-- 		        <div class="row"> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		        </div> -->
+<!-- 		        /.row -->
+<!-- 				<br /> -->
+<!-- 		        Projects Row -->
+<!-- 		        <div class="row"> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		            <div class="col-md-3 portfolio-item"> -->
+<!-- 		                <a href="#"> -->
+<!-- 		                    <img class="img-responsive" src="http://placehold.it/750x450" alt=""></img> -->
+<!-- 		                </a> -->
+<!-- 		            </div> -->
+<!-- 		        </div> -->
+<!-- 		        /.row -->
 		
-		        <hr>
-			        <!-- Pagination -->
-			        <div class="row text-center">
-			            <div class="col-lg-12">
-			                <ul class="pagination">
-			                    <li>
-			                        <a href="#">«</a>
-			                    </li>
-			                    <li class="active">
-			                        <a href="#">1</a>
-			                    </li>
-			                    <li>
-			                        <a href="#">2</a>
-			                    </li>
-			                    <li>
-			                        <a href="#">3</a>
-			                    </li>
-			                    <li>
-			                        <a href="#">4</a>
-			                    </li>
-			                    <li>
-			                        <a href="#">5</a>
-			                    </li>
-			                    <li>
-			                        <a href="#">»</a>
-			                    </li>
-			                </ul>
-			            </div>
-			        </div>
-		        </hr>
-		        <!-- /.row -->
-		        <hr></hr>
+<!-- 		        <hr> -->
+<!-- 			        Pagination -->
+<!-- 			        <div class="row text-center"> -->
+<!-- 			            <div class="col-lg-12"> -->
+<!-- 			                <ul class="pagination"> -->
+<!-- 			                    <li> -->
+<!-- 			                        <a href="#">«</a> -->
+<!-- 			                    </li> -->
+<!-- 			                    <li class="active"> -->
+<!-- 			                        <a href="#">1</a> -->
+<!-- 			                    </li> -->
+<!-- 			                    <li> -->
+<!-- 			                        <a href="#">2</a> -->
+<!-- 			                    </li> -->
+<!-- 			                    <li> -->
+<!-- 			                        <a href="#">3</a> -->
+<!-- 			                    </li> -->
+<!-- 			                    <li> -->
+<!-- 			                        <a href="#">4</a> -->
+<!-- 			                    </li> -->
+<!-- 			                    <li> -->
+<!-- 			                        <a href="#">5</a> -->
+<!-- 			                    </li> -->
+<!-- 			                    <li> -->
+<!-- 			                        <a href="#">»</a> -->
+<!-- 			                    </li> -->
+<!-- 			                </ul> -->
+<!-- 			            </div> -->
+<!-- 			        </div> -->
+<!-- 		        </hr> -->
+<!-- 		        /.row -->
+<!-- 		        <hr></hr> -->
 		
-		        <!-- Footer -->
-		        <footer>
-		            <div class="row">
-		                <div class="col-lg-12">
-		                    <p>Copyright © Your Website 2014</p>
-		                </div>
-		            </div>
-		            <!-- /.row -->
-		        </footer>
+<!-- 		        Footer -->
+<!-- 		        <footer> -->
+<!-- 		            <div class="row"> -->
+<!-- 		                <div class="col-lg-12"> -->
+<!-- 		                    <p>Copyright © Your Website 2014</p> -->
+<!-- 		                </div> -->
+<!-- 		            </div> -->
+<!-- 		            /.row -->
+<!-- 		        </footer> -->
 		
-		    </div>
-		</div>
+<!-- 		    </div> -->
+<!-- 		</div> -->
 	</ui:define>
 </ui:composition>

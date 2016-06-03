@@ -10,6 +10,6 @@ public interface OglasaDao {
      public Oglasa save(Oglasa oglasa);
      public void merge(Oglasa oglasa);
      public List<Oglasa> list();
-     public void remove(Oglasa oglasa);
+     public void remove(Long id);
      
 }

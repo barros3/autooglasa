@@ -37,6 +37,20 @@ public class Oglasa implements Serializable {
     @ManyToOne(cascade=CascadeType.ALL)
     private User user;
 
+    public Oglasa(){
+    }
+    
+	public Oglasa(Long id, double preco, String fabricante, String modelo, int ano, String potencia, User user) {
+		super();
+		this.id = id;
+		this.preco = preco;
+		this.fabricante = fabricante;
+		this.modelo = modelo;
+		this.ano = ano;
+		this.potencia = potencia;
+		this.user = user;
+	}
+
 	public Long getId() {
 		return id;
 	}
